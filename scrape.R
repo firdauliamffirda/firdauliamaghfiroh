@@ -8,11 +8,7 @@ message("Loading the URL(s)")
 url <- "https://www.cnnindonesia.com/"
 html <- read_html(url)
 
-html %>% html_elements('article') %>% html_attrs()
-
 a <- html %>% html_elements(".title") %>% html_text()
-a
-
 
 title1 <- html %>% html_element(".headline__box") %>% html_element(".title") %>% html_text2() # headline
 kanal1 <- html %>% html_element(".headline__box") %>% html_element(".kanal") %>% html_text2() # kanal headline
@@ -26,7 +22,6 @@ link <- c()
 for (i in 1:length(h)){
   link <- append(link, h[[i]]["href"])
 }
-link
 
 headline <- data.frame(judul = title1,
                        kanal = kanal1,
