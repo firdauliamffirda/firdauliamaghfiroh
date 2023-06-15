@@ -1,3 +1,8 @@
+library(rvest)
+library(dplyr)
+library(stringr)
+library(mongolite)
+
 message("Loading the URL(s)")
 #url <- "https://www.amazon.com/b/?ie=UTF8&node=17938598011&ext=6886-37479&ref=pd_sl_7nnedyywlk_e&tag=googleglobalp-20&hvpos=&hvnetw=g&hvrand=11706673355504832262&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9072592&hvtargid=kwd-10573980&tag=googleglobalp-20&ref=pd_sl_7nnedyywlk_e&adgrpid=82342659060&hvpone=&hvptwo=&hvadid=585475370855&hvpos=&hvnetw=g&hvrand=11706673355504832262&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9072592&hvtargid=kwd-10573980&hydadcr=2246_13468515"
 url <- "https://www.cnnindonesia.com/"
