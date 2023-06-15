@@ -2,7 +2,7 @@ name : Daily Scraping Berita Trending
 
 on :
   schedule:
-    - cron: '*/5 * * * *' #every 5 minutes
+    - cron: '0 */2 * * *' #every 2 hours
     
     
 jobs:
