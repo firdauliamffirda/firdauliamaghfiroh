@@ -42,3 +42,8 @@ atlas <- mongo (
   db         = Sys.getenv("ATLAS_DB"),
   url        = Sys.getenv("ATLAS_URL")
 )
+
+atlas$insert(store)
+
+message("Disconnect Database")
+atlas$disconnect()
