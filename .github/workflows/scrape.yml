@@ -1,0 +1,29 @@
+name : Daily Scraping Berita Trending
+
+on :
+  schedule:
+    - cron: '*/5 * * * *' #every 5 minutes
+    
+    
+jobs:
+  news-scrape:
+    runs-on: macos-latest
+    env:
+      ATLAS_URL: ${{ secrets.ATLAS_URL }}
+      ATLAS_COLLECTION: ${{ secrets.ATLAS_COLLECTION }}
+      ATLAS_DB: ${{ secrets.ATLAS_DB }}
+    steps:
+      - name: Start time
+        run: echo "$(date) ** $(TZ=Asia/Jakarta date)"
+      - uses: actions/checkout@v3
+      - uses: r-lib/actions/setup-r@v2
+      - name: Install rvest package
+        run: Rscript -e 'install.packages("rvest", dependencies = TRUE)'
+      - name: Install dplyr package
+        run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'
+      - name: Install stringr package
+        run: Rscript -e 'install.packages("stringr", dependencies = TRUE)'
+      - name: Install mongolite package
+        run: Rscript -e 'install.packages("mongolite", dependencies = TRUE)'
+      - name: Scrape data
+        run: Rscript scrape.R
